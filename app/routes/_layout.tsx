@@ -23,3 +23,8 @@ export default function Layout() {
 		</div>
 	)
 }
+
+export const action = () => {
+	console.log('action')
+	return null
+}

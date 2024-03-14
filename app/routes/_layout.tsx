@@ -8,10 +8,18 @@ export default function Layout() {
 				<h1 className='display-6'>Dont just read, Practice!</h1>
 				<nav>
 					<li>
-						<Link to='/'>Home</Link>
+						<Link
+							to='/'
+							className='link-offset-2 link-underline link-underline-opacity-25'>
+							Home
+						</Link>
 					</li>
 					<li>
-						<a href='/about'>github</a>
+						<a
+							href='/about'
+							className='link-offset-2 link-underline link-underline-opacity-25'>
+							github
+						</a>
 					</li>
 				</nav>
 				<NoteInput />
@@ -22,9 +30,4 @@ export default function Layout() {
 			</main>
 		</div>
 	)
-}
-
-export const action = () => {
-	console.log('action')
-	return null
 }

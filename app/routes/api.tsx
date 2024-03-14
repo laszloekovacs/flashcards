@@ -1,4 +1,5 @@
 import { ActionFunctionArgs } from '@remix-run/node'
+import { WithId } from 'mongodb'
 import invariant from 'tiny-invariant'
 import { db } from '~/services.server'
 
@@ -12,19 +13,14 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 	invariant(topic, 'topic is required')
 	invariant(notes, 'notes is required')
 
-	console.log({ topic, title, notes })
-
 	// insert into database
 	const insertionResult = await db.cards.insertOne({
 		topic,
 		title,
-		notes,
-		createdAt: new Date()
-	})
+		notes
+	} as WithId<FlashCard>)
 
-	if (insertionResult.acknowledged == false) {
-		return new Response('failed to create', { status: 500 })
-	}
+	invariant(insertionResult.acknowledged, 'failed to create')
 
 	return new Response('created', { status: 201 })
 }

@@ -4,8 +4,8 @@ import { db } from '~/services.server'
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: 'New Remix App' },
-		{ name: 'description', content: 'Welcome to Remix!' }
+		{ title: 'Flashcard app' },
+		{ name: 'description', content: 'Learn by repetition' }
 	]
 }
 
@@ -21,7 +21,7 @@ export default function Index() {
 		<div>
 			<h2>Pick a topic to practice</h2>
 			{topics.length > 0 && (
-				<ul>
+				<ul className='list-group list-group-flush'>
 					{topics.map(topic => (
 						<TopicListItem key={topic} topic={topic} />
 					))}
@@ -34,7 +34,11 @@ export default function Index() {
 }
 
 export const TopicListItem = ({ topic }: { topic: string }) => (
-	<li>
-		<Link to={`/${topic}`}>{topic}</Link>
+	<li className='list-group-item'>
+		<Link
+			to={`/${topic}`}
+			className='link-offset-2 link-underline link-underline-opacity-25'>
+			{topic}
+		</Link>
 	</li>
 )

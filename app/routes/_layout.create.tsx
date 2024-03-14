@@ -1,6 +1,6 @@
 import { Form, useFetcher } from '@remix-run/react'
 
-export const NoteInput = () => {
+export default function CreateNote() {
 	const fetcher = useFetcher()
 
 	return (

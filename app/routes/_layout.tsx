@@ -1,5 +1,4 @@
 import { Link, Outlet } from '@remix-run/react'
-import { NoteInput } from '~/components/note-input'
 
 export default function Layout() {
 	return (
@@ -22,7 +21,6 @@ export default function Layout() {
 						</a>
 					</li>
 				</nav>
-				<NoteInput />
 			</header>
 
 			<main>

@@ -10,18 +10,21 @@ import {
 } from '@remix-run/react'
 
 export const links: LinksFunction = () => [
-	...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])
+	{
+		rel: 'stylesheet',
+		href: '	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
+	}
 ]
 
 export default function App() {
 	return (
-		<Layout>
+		<RootLayout>
 			<Outlet />
-		</Layout>
+		</RootLayout>
 	)
 }
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+export const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang='en'>
 			<head>
@@ -30,7 +33,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 				<Meta />
 				<Links />
 			</head>
-			<body>
+			<body className='container-md'>
 				{children}
 				<ScrollRestoration />
 				<Scripts />

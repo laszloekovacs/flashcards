@@ -19,14 +19,16 @@ export default function Index() {
 
 	return (
 		<div>
-			<h1>Welcome to Flashcards!</h1>
-
 			<h2>Pick a topic to practice</h2>
-			<ul>
-				{topics.map(topic => (
-					<TopicListItem key={topic} topic={topic} />
-				))}
-			</ul>
+			{topics.length > 0 && (
+				<ul>
+					{topics.map(topic => (
+						<TopicListItem key={topic} topic={topic} />
+					))}
+				</ul>
+			)}
+
+			{topics.length === 0 && <p>No notes are available, create more!</p>}
 		</div>
 	)
 }

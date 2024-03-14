@@ -52,7 +52,7 @@ export const action = async ({ request, params }: LoaderFunctionArgs) => {
 
 		invariant(updateResult.acknowledged, 'could not update score')
 
-		// increment the score to the max score
+		// set score to zero
 	} else if (intent === 'SHOW_LESS') {
 		console.log('show less')
 

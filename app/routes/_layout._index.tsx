@@ -35,6 +35,6 @@ export default function Index() {
 
 export const TopicListItem = ({ topic }: { topic: string }) => (
 	<li>
-		<Link to={`/flashcards/${topic}`}>{topic}</Link>
+		<Link to={`/${topic}`}>{topic}</Link>
 	</li>
 )

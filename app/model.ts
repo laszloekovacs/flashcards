@@ -1,6 +1,6 @@
 type FlashCard = {
 	// optional ordering of the document
-	order?: number
+	score?: number
 
 	// group
 	topic: string
@@ -9,5 +9,5 @@ type FlashCard = {
 	title?: string
 
 	// markdown text of the note
-	body: string
+	notes: string
 }

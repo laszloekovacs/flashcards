@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId } from 'mongodb'
+import { MongoClient, ObjectId, WithId } from 'mongodb'
 /**
  * Singletons. puts / gets the value in the global scope. see:
  * https://github.com/remix-run/examples/blob/main/_official-blog-tutorial/app/singleton.server.ts
@@ -36,7 +36,7 @@ export const mongodb = singleton(
 )
 
 export const db = {
-	cards: mongodb.db(MONGODB_DATABASE).collection('cards')
+	cards: mongodb.db(MONGODB_DATABASE).collection<WithId<FlashCard>>('cards')
 }
 
 export const toObjectId = (id: string) => new ObjectId(id)

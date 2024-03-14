@@ -20,25 +20,31 @@ export default function Index() {
 	return (
 		<div>
 			<h2>Pick a topic to practice</h2>
-			{topics.length > 0 && (
-				<ul className='list-group list-group-flush'>
-					{topics.map(topic => (
-						<TopicListItem key={topic} topic={topic} />
-					))}
-				</ul>
-			)}
+
+			{topics.length && <TopicTable topics={topics} />}
 
 			{topics.length === 0 && <p>No notes are available, create more!</p>}
 		</div>
 	)
 }
 
-export const TopicListItem = ({ topic }: { topic: string }) => (
-	<li className='list-group-item'>
-		<Link
-			to={`/${topic}`}
-			className='link-offset-2 link-underline link-underline-opacity-25'>
-			{topic}
-		</Link>
-	</li>
-)
+export const TopicTable = ({ topics }: { topics: string[] }) => {
+	return (
+		<table className='table'>
+			<thead>
+				<tr>
+					<th scope='col'>Topic</th>
+				</tr>
+			</thead>
+			<tbody>
+				{topics.map(topic => (
+					<tr>
+						<td>
+							<Link to={`/topic/${topic}`}>{topic}</Link>
+						</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	)
+}

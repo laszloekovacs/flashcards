@@ -33,7 +33,7 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
 				<Meta />
 				<Links />
 			</head>
-			<body className='container-md'>
+			<body className='container-sm'>
 				{children}
 				<ScrollRestoration />
 				<Scripts />
